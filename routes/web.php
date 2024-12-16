@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,11 @@ Route::get('/', [AppController::class, 'index'])->name('app.index');
 Route::get('/shop',[ShopController::class,'index'])->name('shop.index');
 Route::get('/product{slug}',[ShopController::class,'productDetails'])->name('shop.product.details');
 
+Route::get('/cart',[CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/store',[CartController::class, 'addToCart'])->name('cart.store');
+Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
+Route::delete('/cart/remove',[CartController::class, 'removeitem'])->name('cart.remove');
+Route::delete('/cart/clear',[CartController::class, 'clearCart'])->name('cart.clear');
 // Authentication routes
 Auth::routes(); // Ini sudah mencakup login, register, dan logout
 

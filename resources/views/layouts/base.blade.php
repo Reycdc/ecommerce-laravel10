@@ -115,7 +115,7 @@
                             <div class="menu-left">
                                 <div class="brand-logo">
                                     <a href="{{route('app.index')}}">
-                                        <img src="assets/images/logo.png" class="h-logo img-fluid blur-up lazyload"
+                                        <img src="{{asset('assets/images/logo.png')}}" class="h-logo img-fluid blur-up lazyload"
                                             alt="logo">
                                     </a>
                                 </div>
@@ -137,7 +137,7 @@
                                             </li>
                                             <li><a href="{{route('app.index')}}" class="nav-link menu-title">Home</a></li>
                                             <li><a href="{{route('shop.index')}}" class="nav-link menu-title">Shop</a></li>
-                                            <li><a href="cart/list.html" class="nav-link menu-title">Cart</a></li>
+                                            <li><a href="{{route('cart.index')}}" class="nav-link menu-title">Cart</a></li>
                                             <li><a href="about-us.html" class="nav-link menu-title">About Us</a></li>
                                             <li><a href="contact-us.html" class="nav-link menu-title">Contact Us</a>
                                             </li>
@@ -165,10 +165,10 @@
                                     </li>
                                     <li class="onhover-dropdown wislist-dropdown">
                                         <div class="cart-media">
-                                            <a href="cart/list.html">
+                                            <a href="{{route('cart.index')}}">
                                                 <i data-feather="shopping-cart"></i>
                                                 <span id="cart-count" class="label label-theme rounded-pill">
-                                                    0
+                                                    {{Cart::instance('cart')->content()->count( )}}
                                                 </span>
                                             </a>
                                         </div>
